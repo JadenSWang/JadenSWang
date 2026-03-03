@@ -2,8 +2,8 @@ import { Experience, Project, SocialLink } from "@/types";
 
 export const siteConfig = {
   name: "Jaden S. Wang",
-  title: "Software Engineer",
-  bio: "I build thoughtful digital experiences at the intersection of design and engineering. Passionate about clean code, elegant interfaces, and the details that make software feel alive.",
+  title: "Engineer",
+  bio: "I work at the intersection of infrastructure, AI, drones, and the blurring line between hardware and software. From GPU cloud platforms to autonomous systems, I build the foundations that power the next generation of computing.",
 };
 
 export const experience: Experience[] = [
@@ -14,6 +14,30 @@ export const experience: Experience[] = [
     period: "Formerly Voltage Park",
     description:
       "Led engineering teams building infrastructure and tools for scalable AI development and GPU cloud computing.",
+  },
+  {
+    id: "tensordock",
+    company: "TensorDock",
+    role: "General Manager",
+    period: "",
+    description:
+      "Managed operations and growth for a cloud GPU marketplace, scaling infrastructure for AI and machine learning workloads.",
+  },
+  {
+    id: "heaviside-hosting",
+    company: "Heaviside Hosting",
+    role: "CEO",
+    period: "",
+    description:
+      "Founded and led a hosting company, building reliable infrastructure and services for clients at scale.",
+  },
+  {
+    id: "dashrd",
+    company: "DashRD",
+    role: "Partner",
+    period: "",
+    description:
+      "Founded and led DashRD, driving product strategy and company growth from the ground up.",
   },
 ];
 
@@ -65,6 +89,5 @@ export const socialLinks: SocialLink[] = [
 export const navItems = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
