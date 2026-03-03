@@ -18,7 +18,7 @@ export const experience: Experience[] = [
   {
     id: "tensordock",
     company: "TensorDock",
-    role: "General Manager",
+    role: "Software Engineer → General Manager",
     period: "",
     description:
       "Managed operations and growth for a cloud GPU marketplace, scaling infrastructure for AI and machine learning workloads.",
