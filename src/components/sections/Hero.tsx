@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-display text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl"
+          className="font-display text-4xl font-bold tracking-tight text-foreground/60 md:text-6xl lg:text-7xl"
         >
           {siteConfig.name}
         </motion.h1>

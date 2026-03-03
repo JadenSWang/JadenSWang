@@ -24,6 +24,8 @@ export default function ParticleBackground() {
     let animationId: number;
     let particles: Particle[] = [];
 
+    const mouse = { x: 0, y: 0, active: false };
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -38,7 +40,7 @@ export default function ParticleBackground() {
 
     function createParticles() {
       const width = canvas!.offsetWidth;
-      const count = width < 768 ? 50 : 100;
+      const count = width < 768 ? 80 : 160;
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * canvas!.offsetWidth,
         y: Math.random() * canvas!.offsetHeight,
@@ -47,6 +49,21 @@ export default function ParticleBackground() {
         radius: Math.random() * 1.5 + 0.5,
         opacity: Math.random() * 0.3 + 0.1,
       }));
+    }
+
+    function handleMouseMove(e: MouseEvent) {
+      const rect = canvas!.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active =
+        mouse.x >= 0 &&
+        mouse.x <= rect.width &&
+        mouse.y >= 0 &&
+        mouse.y <= rect.height;
+    }
+
+    function handleMouseLeave() {
+      mouse.active = false;
     }
 
     function animate() {
@@ -58,7 +75,29 @@ export default function ParticleBackground() {
       const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const color = isDark ? "255, 255, 255" : "0, 0, 0";
 
+      const interactionRadius = 150;
+
       for (const p of particles) {
+        // Mouse repulsion
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < interactionRadius && dist > 0) {
+            const force = (1 - dist / interactionRadius) * 0.02;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // Dampen velocity to prevent runaway speeds
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (speed > 1.5) {
+          p.vx *= 0.95;
+          p.vy *= 0.95;
+        }
+
         p.x += p.vx;
         p.y += p.vy;
 
@@ -93,6 +132,25 @@ export default function ParticleBackground() {
         }
       }
 
+      // Draw lines from mouse to nearby particles
+      if (mouse.active) {
+        for (const p of particles) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < interactionRadius) {
+            const lineOpacity = (1 - dist / interactionRadius) * 0.2;
+            ctx!.beginPath();
+            ctx!.moveTo(mouse.x, mouse.y);
+            ctx!.lineTo(p.x, p.y);
+            ctx!.strokeStyle = `rgba(${color}, ${lineOpacity})`;
+            ctx!.lineWidth = 0.5;
+            ctx!.stroke();
+          }
+        }
+      }
+
       animationId = requestAnimationFrame(animate);
     }
 
@@ -100,6 +158,8 @@ export default function ParticleBackground() {
     createParticles();
     animate();
 
+    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", () => {
       resize();
       createParticles();
@@ -107,6 +167,8 @@ export default function ParticleBackground() {
 
     return () => {
       cancelAnimationFrame(animationId);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("resize", resize);
     };
   }, []);
