@@ -19,7 +19,7 @@ export default function About() {
       ref={ref}
       className="relative px-6 py-32 md:py-40"
     >
-      <motion.div style={{ y }} className="mx-auto max-w-2xl">
+      <motion.div style={{ y }} className="mx-auto max-w-4xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
