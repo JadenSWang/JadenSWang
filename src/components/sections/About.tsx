@@ -53,7 +53,7 @@ export default function About() {
             delay: 0.2,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className="mt-10 grid grid-cols-2 gap-3"
+          className="mt-10 grid grid-cols-3 gap-3"
         >
           <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
             <Image
@@ -70,7 +70,16 @@ export default function About() {
               alt="Working in a server room"
               fill
               className="object-cover"
-              sizes="(max-width: 672px) 50vw, 320px"
+              sizes="(max-width: 672px) 33vw, 213px"
+            />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <Image
+              src="/2023-12-20_20-29-00_IMG_9606.jpg"
+              alt="Building a drone at the workbench"
+              fill
+              className="object-cover"
+              sizes="(max-width: 672px) 33vw, 213px"
             />
           </div>
         </motion.div>
