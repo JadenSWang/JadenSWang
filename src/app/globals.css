@@ -34,3 +34,22 @@ body {
   background: var(--accent);
   color: white;
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume-page {
+    background: white !important;
+    color: black !important;
+  }
+
+  @page {
+    margin: 0.5in 0.6in;
+    size: letter;
+  }
+}
