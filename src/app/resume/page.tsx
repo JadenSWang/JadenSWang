@@ -146,7 +146,7 @@ export default function ResumePage() {
           </h2>
           <div>
             <h3 className="text-lg font-semibold print:text-base">
-              University of California, San Diego
+              University of Washington — Seattle
             </h3>
             <p className="text-sm text-foreground/60 print:text-xs print:text-black/70">
               B.S. Computer Science
