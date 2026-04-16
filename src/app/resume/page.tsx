@@ -149,7 +149,7 @@ export default function ResumePage() {
               University of Washington — Seattle
             </h3>
             <p className="text-sm text-foreground/60 print:text-xs print:text-black/70">
-              B.S. Computer Science
+              B.S. Electrical Engineering
             </p>
           </div>
         </section>
