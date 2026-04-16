@@ -11,7 +11,7 @@ export const experience: Experience[] = [
     id: "lightning-ai",
     company: "Lightning.ai",
     role: "Software Engineering Manager",
-    period: "Formerly Voltage Park",
+    period: "2025 — 2026 · Formerly Voltage Park",
     description:
       "Led engineering teams building infrastructure and tools for scalable AI development and GPU cloud computing.",
   },
@@ -19,7 +19,7 @@ export const experience: Experience[] = [
     id: "tensordock",
     company: "TensorDock",
     role: "Software Engineer → General Manager",
-    period: "",
+    period: "2024 — 2025",
     description:
       "Managed operations and growth for a cloud GPU marketplace, scaling infrastructure for AI and machine learning workloads.",
   },
@@ -27,7 +27,7 @@ export const experience: Experience[] = [
     id: "heaviside-hosting",
     company: "Heaviside Hosting",
     role: "CEO",
-    period: "",
+    period: "2022 — 2024",
     description:
       "Founded and led a hosting company, building reliable infrastructure and services for clients at scale.",
   },
@@ -35,7 +35,7 @@ export const experience: Experience[] = [
     id: "dashrd",
     company: "DashRD",
     role: "Partner",
-    period: "",
+    period: "2020 — 2022",
     description:
       "Founded and led DashRD, driving product strategy and company growth from the ground up.",
   },
@@ -81,7 +81,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: "Email",
-    href: "mailto:hello@example.com",
+    href: "mailto:connect@jadenswang.com",
     label: "Email",
   },
 ];
