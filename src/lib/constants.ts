@@ -39,6 +39,14 @@ export const experience: Experience[] = [
     description:
       "Founded and led DashRD, driving product strategy and company growth from the ground up.",
   },
+  {
+    id: "jhuapl",
+    company: "Johns Hopkins University Applied Physics Laboratory",
+    role: "Quantum Computing Intern",
+    period: "2018 — 2020",
+    description:
+      "Contributed to quantum computing research and development at one of the nation's premier research laboratories.",
+  },
 ];
 
 export const projects: Project[] = [
