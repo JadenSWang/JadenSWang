@@ -2,7 +2,7 @@ import { Experience, Project, SocialLink } from "@/types";
 
 export const siteConfig = {
   name: "Jaden S. Wang",
-  title: "Engineer",
+  title: "Engineering",
   bio: "Working at the intersection of infrastructure, AI, drones, and the blurring line between hardware and software. From GPU cloud platforms to autonomous systems — building the foundations that power the next generation of computing.",
 };
 
